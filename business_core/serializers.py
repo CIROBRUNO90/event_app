@@ -39,4 +39,7 @@ class BookingSerializer(serializers.ModelSerializer):
         event = data['event']
         if event.event_type == Event.EventType.PRIVATE:
             raise serializers.ValidationError("The event is private, you cannot make a reservation.")
+        else:
+            if not event.are_there_any_available_places:
+                raise serializers.ValidationError("The event has no more available space.")
         return data

@@ -1,0 +1,7 @@
+*__pycache__/
+*/migrations/
+bin/
+lib/
+pyvenv.cfg
+*env/
+.vscode/

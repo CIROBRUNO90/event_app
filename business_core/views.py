@@ -77,7 +77,7 @@ class RoomViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
 
 class EventViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
 
-    queryset = Event.objects.all()
+    queryset = Event.objects.filter(event_type=Event.EventType.PUBLIC)
     serializer_class = EventSerializer
 
     def list(self, request, *args, **kwargs):
